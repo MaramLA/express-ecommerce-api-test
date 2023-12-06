@@ -21,11 +21,18 @@ app.get("/products", (request, response) => {
 });
 
 app.get("/products/:id", (request, response) => {
-  const id = Number(request.params.id);
-  const product = products.find((product) => product.id === id);
-  response.send({
-    product: product,
-  });
+  try {
+    const id = Number(request.params.id);
+    const product = products.find((product) => product.id === id);
+    if (!product) {
+      response.status(404).send({ message: "product not found" });
+    }
+    response.send({
+      product: product,
+    });
+  } catch (error) {
+    response.status(500).send({ message: error.message });
+  }
 });
 
 app.listen(port, () => {
