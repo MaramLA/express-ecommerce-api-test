@@ -17,7 +17,7 @@ const getAllProcucts = async (req, res) => {
 const createNewProduct = async (req, res) => {
   try {
     const newProduct = {
-      title: req.body.title,
+      name: req.body.name,
       price: req.body.price,
     };
 
