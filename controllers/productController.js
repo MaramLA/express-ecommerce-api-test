@@ -4,7 +4,7 @@ const { request } = require("http");
 
 const getAllProcucts = async (req, res) => {
   try {
-    const products = await Product.find;
+    const products = await Product.find();
     return res.send({
       message: "return all products",
       payload: products,
