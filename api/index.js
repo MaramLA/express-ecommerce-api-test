@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
 const productRouter = require("../routes/productRoute");
 const connectDB = require("../config/db");
@@ -12,6 +13,7 @@ app.get("/", (request, response) => {
   response.send({ message: "API is working fine" });
 });
 
+app.use(cors());
 app.use("/products", productRouter);
 
 // app.get("/products", (request, response) => {
