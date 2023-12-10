@@ -1,9 +1,12 @@
 const express = require("express");
 require("dotenv").config();
 const productRouter = require("../routes/productRoute");
+const connectDB = require("../config/db");
 const app = express();
 
 const port = process.env.PORT || 3004;
+
+connectDB();
 
 app.get("/", (request, response) => {
   response.send({ message: "API is working fine" });
