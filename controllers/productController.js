@@ -7,7 +7,7 @@ const getAllProcucts = async (req, res) => {
     const products = await Product.find;
     return res.send({
       message: "return all products",
-      products: products,
+      payload: products,
     });
   } catch (error) {
     return res.status(500).send({ message: error.message });
